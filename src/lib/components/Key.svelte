@@ -6,11 +6,13 @@
     state = undefined as LetterState | undefined,
     wide = false,
     onpress,
+    children,
   }: {
     key: string;
     state?: LetterState;
     wide?: boolean;
     onpress: (key: string) => void;
+    children?: any;
   } = $props();
 </script>
 
@@ -23,7 +25,11 @@
   aria-label={key}
   onclick={() => onpress(key)}
 >
-  {key}
+  {#if children}
+    {@render children()}
+  {:else}
+    {key}
+  {/if}
 </button>
 
 <style>
