@@ -38,17 +38,8 @@
             onpress={() => onKey(k)}
           >
             {#snippet children()}
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon-wand">
-                <!-- Wand shaft -->
-                <line x1="4" y1="20" x2="18" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-                <!-- Star burst at tip -->
-                <circle cx="18" cy="6" r="1.5" fill="currentColor" />
-                <circle cx="21" cy="6" r="0.8" fill="currentColor" />
-                <circle cx="18" cy="3" r="0.8" fill="currentColor" />
-                <circle cx="18" cy="9" r="0.8" fill="currentColor" />
-                <circle cx="14.5" cy="6" r="0.8" fill="currentColor" />
-                <circle cx="22" cy="3" r="0.6" fill="currentColor" />
-                <circle cx="22" cy="9" r="0.6" fill="currentColor" />
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon-checkmark">
+                <polyline points="20 6 9 17 4 12" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" />
               </svg>
             {/snippet}
           </Key>
@@ -86,7 +77,7 @@
     justify-content: center;
   }
 
-  .icon-wand {
+  .icon-checkmark {
     width: 1.2em;
     height: 1.2em;
     display: block;
@@ -102,7 +93,7 @@
       gap: 3px;
     }
 
-    .icon-wand {
+    .icon-checkmark {
       width: 1em;
       height: 1em;
     }

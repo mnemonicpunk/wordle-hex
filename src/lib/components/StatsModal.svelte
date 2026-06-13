@@ -28,13 +28,34 @@
 
   async function share() {
     const text = buildShareText();
+    const url = 'https://mnemonicpunk.github.io/wordle-hex/';
+    const shareMessage = `${text}\n\nSpielen: ${url}`;
+
+    // Use native Web Share API if available (smartphones, tablets)
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: 'Wortspiel',
+          text: shareMessage,
+          url: url,
+        });
+        return;
+      } catch (err) {
+        // User cancelled share or error — fall through to clipboard
+        if (err instanceof Error && err.name !== 'AbortError') {
+          console.error('Share failed:', err);
+        }
+      }
+    }
+
+    // Fallback: clipboard copy
     try {
-      await navigator.clipboard.writeText(text);
+      await navigator.clipboard.writeText(shareMessage);
       shareLabel = 'Kopiert! ✓';
       setTimeout(() => { shareLabel = 'Teilen'; }, 2000);
     } catch {
       // Clipboard access denied — show text in alert as fallback
-      alert(text);
+      alert(shareMessage);
     }
   }
 
