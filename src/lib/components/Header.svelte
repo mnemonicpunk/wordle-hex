@@ -11,7 +11,7 @@
 </script>
 
 <header>
-  <img src="{import.meta.env.BASE_URL}logo.png" alt="Wortspiel" class="logo" />
+  <img src="{import.meta.env.BASE_URL}logo.png" alt="Wordle Hex" class="logo" />
 
   <div class="button-strip">
     <button aria-label="Hilfe" onclick={onHelp}>

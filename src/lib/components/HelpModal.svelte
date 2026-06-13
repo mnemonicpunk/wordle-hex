@@ -18,7 +18,7 @@
 
 <Modal title="Wie man spielt" {onClose}>
   <div class="help">
-    <p>Errate das <strong>WORTSPIEL</strong> in 6 Versuchen.</p>
+    <p>Errate das <strong>Wordle Hex</strong> in 6 Versuchen.</p>
 
     <ul>
       <li>Jeder Versuch muss ein gültiges 5-Buchstaben-Wort sein.</li>

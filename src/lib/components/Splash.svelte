@@ -1,5 +1,5 @@
 <div class="splash-container">
-  <img src="{import.meta.env.BASE_URL}logo.png" alt="Wortspiel" class="splash-logo" />
+  <img src="{import.meta.env.BASE_URL}logo.png" alt="Wordle Hex" class="splash-logo" />
 </div>
 
 <style>

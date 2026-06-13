@@ -21,7 +21,7 @@
     }
 
     const result = game.gameStatus === 'won' ? `${game.currentRow}/6` : 'X/6';
-    return `Wortspiel #${game.dayIndex + 1} ${result}\n\n${rows.join('\n')}`;
+    return `Wordle Hex #${game.dayIndex + 1} ${result}\n\n${rows.join('\n')}`;
   }
 
   let shareLabel = $state('Teilen');
@@ -35,7 +35,7 @@
     if (navigator.share) {
       try {
         await navigator.share({
-          title: 'Wortspiel',
+          title: 'Wordle Hex',
           text: shareMessage,
           url: url,
         });
