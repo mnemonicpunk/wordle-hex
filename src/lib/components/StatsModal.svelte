@@ -29,7 +29,7 @@
   async function share() {
     const text = buildShareText();
     const url = 'https://mnemonicpunk.github.io/wordle-hex/';
-    const shareMessage = `${text}\n\nSpielen: ${url}`;
+    const shareMessage = `${text}\n\n`;
 
     // Use native Web Share API if available (smartphones, tablets)
     if (navigator.share) {
