@@ -10,4 +10,14 @@ export default defineConfig({
       '$lib': path.resolve('./src/lib'),
     },
   },
+  build: {
+    outDir: 'dist',
+    emptyOutDir: true,
+    sourcemap: false,
+    rollupOptions: {
+      output: {
+        manualChunks: undefined,
+      },
+    },
+  },
 })
