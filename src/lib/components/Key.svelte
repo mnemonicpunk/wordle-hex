@@ -31,8 +31,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    min-width: 43px;
-    height: 58px;
+    min-width: var(--key-min-width, 43px);
+    height: var(--key-height, 58px);
     padding: 0 6px;
     border-radius: 4px;
     background: var(--key-bg);
@@ -49,7 +49,7 @@
   }
 
   .key.wide {
-    min-width: 65px;
+    min-width: var(--key-wide-min, 65px);
     font-size: 0.72rem;
     letter-spacing: 0;
   }

@@ -41,14 +41,25 @@
   .keyboard {
     display: flex;
     flex-direction: column;
-    gap: 8px;
-    padding: 10px 8px 16px;
+    gap: 6px;
+    padding: 8px;
     flex-shrink: 0;
   }
 
   .row {
     display: flex;
-    gap: 6px;
+    gap: 4px;
     justify-content: center;
+  }
+
+  @media (max-width: 600px) {
+    .keyboard {
+      gap: 4px;
+      padding: 6px;
+    }
+
+    .row {
+      gap: 3px;
+    }
   }
 </style>

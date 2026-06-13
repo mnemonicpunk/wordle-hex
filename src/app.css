@@ -145,9 +145,9 @@ button:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
 }
 
 @keyframes tile-bounce {
-  0%,100% { transform: translateY(0);     }
-  40%      { transform: translateY(-28px); }
-  60%      { transform: translateY(-14px); }
+  0%,100% { transform: translateY(0);           }
+  40%      { transform: translateY(calc(-0.45 * var(--tile-size, 62px))); }
+  60%      { transform: translateY(calc(-0.225 * var(--tile-size, 62px))); }
 }
 
 @keyframes row-shake {
@@ -178,4 +178,26 @@ button:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
 @keyframes glow-pulse {
   0%,100% { box-shadow: 0 0 10px var(--glow-correct), 0 0  4px var(--glow-correct); }
   50%      { box-shadow: 0 0 22px var(--glow-correct), 0 0 44px var(--glow-present); }
+}
+
+/* ─── Responsive Design ──────────────────────────────────────────────────── */
+@media (max-width: 600px) {
+  :root {
+    --tile-size: clamp(48px, 16vw, 62px);
+    --key-min-width: clamp(32px, 8vw, 43px);
+    --key-wide-min: clamp(48px, 12vw, 65px);
+    --key-height: clamp(42px, 12vw, 58px);
+    --header-logo-max-h: clamp(50px, 14vw, 80px);
+  }
+}
+
+/* Extra-small screens (narrow foldables, small phones) */
+@media (max-width: 380px) {
+  :root {
+    --tile-size: clamp(44px, 15vw, 50px);
+    --key-min-width: clamp(28px, 7vw, 38px);
+    --key-wide-min: clamp(42px, 10vw, 58px);
+    --key-height: clamp(38px, 11vw, 50px);
+    --header-logo-max-h: clamp(40px, 12vw, 60px);
+  }
 }

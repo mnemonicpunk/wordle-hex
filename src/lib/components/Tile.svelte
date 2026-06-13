@@ -76,8 +76,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 62px;
-    height: 62px;
+    width: var(--tile-size, 62px);
+    height: var(--tile-size, 62px);
     border: 2px solid var(--tile-empty-border);
     background: transparent;
     color: var(--tile-text);

@@ -38,15 +38,15 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 12px;
-    gap: 8px;
+    padding: 8px 12px;
+    gap: 6px;
     border-bottom: 1px solid var(--header-border, #3a3a3c);
     flex-shrink: 0;
   }
 
   .logo {
-    max-height: 90px;
-    max-width: 240px;
+    max-height: var(--header-logo-max-h, 90px);
+    max-width: 90%;
     width: auto;
     height: auto;
     user-select: none;

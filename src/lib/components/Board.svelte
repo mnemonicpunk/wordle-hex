@@ -33,7 +33,7 @@
     justify-content: center;
     gap: 5px;
     flex: 1;
-    padding: 16px 0;
+    padding: 16px 12px;
   }
 
   .row {
@@ -43,5 +43,27 @@
 
   .row.shaking {
     animation: row-shake 600ms ease;
+  }
+
+  @media (max-width: 600px) {
+    .board {
+      padding: 12px 8px;
+      gap: 4px;
+    }
+
+    .row {
+      gap: 4px;
+    }
+  }
+
+  @media (max-width: 380px) {
+    .board {
+      padding: 10px 6px;
+      gap: 3px;
+    }
+
+    .row {
+      gap: 3px;
+    }
   }
 </style>
