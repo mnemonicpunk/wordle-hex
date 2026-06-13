@@ -1,8 +1,9 @@
 let answerCache: string[] | null = null;
 let validSet: Set<string> | null = null;
 
-// June 8, 2026 = puzzle index 0 (month is 0-indexed in Date constructor)
-const START_DATE = new Date(2026, 5, 8).getTime();
+// June 8, 2026 00:00 UTC = puzzle index 0
+// Using UTC ensures all users worldwide get the same word each day
+const START_DATE = new Date(Date.UTC(2026, 5, 8)).getTime();
 
 async function fetchWordFile(path: string): Promise<string[]> {
   const url = `${import.meta.env.BASE_URL}${path}`;
@@ -40,9 +41,11 @@ export async function loadWordlist(): Promise<string[]> {
 
 export function getWordOfDay(wordlist: string[]): { word: string; dayIndex: number } {
   const now = new Date();
-  // Use local midnight (not UTC) so the word changes at midnight in the user's timezone
-  const localMidnight = new Date(now.getFullYear(), now.getMonth(), now.getDate()).getTime();
-  const dayIndex = Math.max(0, Math.floor((localMidnight - START_DATE) / 86_400_000));
+  // Use UTC midnight so all users worldwide get the same word each day.
+  // This ensures a user in New York, Tokyo, London, Sydney, etc. all get the
+  // same word for the same UTC date, regardless of their local timezone offset.
+  const utcMidnight = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate())).getTime();
+  const dayIndex = Math.max(0, Math.floor((utcMidnight - START_DATE) / 86_400_000));
   const safeIndex = dayIndex % wordlist.length;
   return { word: wordlist[safeIndex], dayIndex };
 }
