@@ -12,6 +12,10 @@ dist
 dist-ssr
 *.local
 
+# Wordlist build artifacts
+# Exclude the local input file (wordlist_in.txt is user's working copy, not committed)
+public/wordlist_in.txt
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

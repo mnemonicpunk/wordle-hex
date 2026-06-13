@@ -98,9 +98,14 @@
     color: var(--eval-text);
   }
 
-  .tile.correct { background: var(--correct); }
-  .tile.present { background: var(--present); }
+  .tile.correct { background: var(--correct); box-shadow: 0 0 14px var(--glow-correct); }
+  .tile.present { background: var(--present); box-shadow: 0 0 10px var(--glow-present); }
   .tile.absent  { background: var(--absent);  }
+
+  /* Gentle mystic glow pulse on winning tiles once they've settled */
+  .tile.revealed.correct:not(.flipping):not(.bouncing) {
+    animation: glow-pulse 3s ease-in-out infinite;
+  }
 
   /* Flip animation — stagger via CSS custom property */
   .tile.flipping {

@@ -11,6 +11,7 @@
   import Keyboard      from './lib/components/Keyboard.svelte';
   import Toast         from './lib/components/Toast.svelte';
   import Confetti      from './lib/components/Confetti.svelte';
+  import Splash        from './lib/components/Splash.svelte';
   import HelpModal     from './lib/components/HelpModal.svelte';
   import StatsModal    from './lib/components/StatsModal.svelte';
   import SettingsModal from './lib/components/SettingsModal.svelte';
@@ -20,6 +21,7 @@
   let wordlist     = $state<string[]>([]);
   let loading      = $state(true);
   let loadError    = $state('');
+  let showSplash   = $state(true);
   let showHelp     = $state(false);
   let showStats    = $state(false);
   let showSettings = $state(false);
@@ -115,6 +117,11 @@
   onMount(async () => {
     settings.applyTheme();
 
+    // Hide splash screen after 3 seconds
+    const splashTimer = setTimeout(() => {
+      showSplash = false;
+    }, 3000);
+
     try {
       wordlist = await loadWordlist();
       const { word, dayIndex } = getWordOfDay(wordlist);
@@ -135,6 +142,8 @@
     } finally {
       loading = false;
     }
+
+    return () => clearTimeout(splashTimer);
   });
 </script>
 
@@ -160,6 +169,7 @@
   <Keyboard onKey={handleKey} />
   <Toast messages={toastMsgs} />
 
+  {#if showSplash}<Splash />{/if}
   {#if showConfetti}<Confetti />{/if}
   {#if showHelp}<HelpModal onClose={() => { showHelp = false; }} />{/if}
   {#if showStats}<StatsModal onClose={() => { showStats = false; }} />{/if}
