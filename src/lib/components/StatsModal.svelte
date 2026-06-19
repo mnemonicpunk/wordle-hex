@@ -21,7 +21,7 @@
     }
 
     const result = game.gameStatus === 'won' ? `${game.currentRow}/6` : 'X/6';
-    return `Wordle Hex #${game.dayIndex + 1} ${result}\n\n${rows.join('\n')}`;
+    return `Wordle Hex #${game.dayIndex + 1} ${result} 🔥${stats.currentStreak}\n\n${rows.join('\n')}`;
   }
 
   let shareLabel = $state('Teilen');
